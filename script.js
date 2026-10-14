@@ -48,7 +48,7 @@ function iconsFor(type, qty) {
     // ...
     // icons += icon;
     // }
-    icons += "\n" + indent;
+    icons += indent;
     for (let i = 1; i <= cap; i++)
     {
         icons += icon; // append icon to icons
@@ -88,20 +88,20 @@ function buildReceipt(type, qty, isStudent, reusableCup, calc) {
     const studentText = isStudent ? "Yes" : "No";
     const cupText = (type === "coffee") ? (reusableCup ? "Yes" : "No") : "N/A";
     return `CAMPUS CAFÉ RECEIPT
-    ------------------------
-    Item: ${type}
-    Unit price: ${money(calc.unitPrice)}
-    Quantity: ${qty}
-    ${icons}
-    Student disc.: ${studentText}
-    Reusable cup: ${cupText}
-    Subtotal: ${money(calc.subtotal)}
-    Student -10%: -${money(calc.studentDiscount)}
-    Eco cup fee: ${money(calc.ecoFee)}
-    Bulk deal: -${money(calc.bulkDiscount)}
-    Tax (5%): ${money(calc.tax)}
-    ------------------------
-    TOTAL: ${money(calc.total)}`;
+------------------------
+Item: ${type}
+Unit price: ${money(calc.unitPrice)}
+Quantity:        ${qty}
+${icons}
+Student disc.:   ${studentText}
+Reusable cup:    ${cupText}
+Subtotal:        ${money(calc.subtotal)}
+Student -10%:   -${money(calc.studentDiscount)}
+Eco cup fee:     ${money(calc.ecoFee)}
+Bulk deal:      -${money(calc.bulkDiscount)}
+Tax (5%):        ${money(calc.tax)}
+------------------------
+TOTAL: ${money(calc.total)}`;
 }
 /*  TODO (JS #5):
     - Show a clear error in #receipt
